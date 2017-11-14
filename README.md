@@ -18,3 +18,13 @@ URL cole isso https://github.com/Berleis/trivagas e no caminho cole isso C:\xamp
 - Depois de aberto, clique em file, depois selecione open projects from file system, em import source cole isso C:\xampp\htdocs\trivagas e dê finish
 
 - Para rodar o projeto, abra o xampp e dê start no apache e no mysql, no navegador digite localhost/trivagas
+
+##### Adicionando a base no phpmyadmin #####
+
+- No navegador, digite localhost/phpmyadmin
+
+- No painel esquerdo, clique em New
+
+- Coloque o nome trivagas e em agrupamento selecione utf8_general_ci
+
+- Depois disso, no painel superior clique em SQL, cole os códigos do script que está na pasta Database e execute

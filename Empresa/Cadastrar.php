@@ -13,10 +13,10 @@
     		<input required placeholder="Digite o nome" name="nome" class="form-control"><br>
     		<label>CNPJ</label><br>
     		<input required placeholder="Digite o cnpj" name="cnpj" class="form-control"><br>
-    		<label>Senha</label><br>
-    		<input required placeholder="Crie uma senha" name="senha" class="form-control" type="password"></input><br><br>
     		<label>Email</label><br>
     		<input required placeholder="Digite o e-mail" name="email" class="form-control"><br>
+    		<label>Senha</label><br>
+    		<input required placeholder="Crie uma senha" name="senha" class="form-control" type="password"></input><br><br>
     		<input class="btn btn-primary" type="reset" value="Cancelar">
     		<input class="btn btn-success" type="submit" value="Cadastrar" name="cadastrar">
     	</form>
@@ -31,7 +31,8 @@
     			$row=$empresa->buscar($_POST['cnpj']);
     			if($row == null){
     				$empresa->incluir($empresa);
-    				header("location: Listar.php");
+    				var_dump($empresa);
+    				/** header("location: Listar.php"); **/
     			}else{
     				echo "<br>CNPJ já existe no sistema!";
     			}
