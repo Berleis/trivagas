@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-	<link rel="stylesheet" href="../Content/bootstrap.css" />
+	<link rel="stylesheet" href="https://bootswatch.com/3/paper/bootstrap.css" />
 	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script>
@@ -14,7 +14,7 @@
 <body>
 	<nav class="navbar navbar-nav navbar-inverse" style="width: 100%; position: absolute; top: 0">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#">Trivagas</a>
+			<a class="navbar-brand" href="../Index/Index.php">Trivagas</a>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="dropdown">
