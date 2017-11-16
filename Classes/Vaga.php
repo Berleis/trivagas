@@ -1,7 +1,6 @@
 <?php
-class Vagas{
+class Vaga{
     
-	// Verificar sobre id_empresa
     private $id;
     private $id_empresa;
     private $descricao;
@@ -58,26 +57,13 @@ class Vagas{
     
     //Metodos
     
-    public function incluir(Vagas $vagas){
+    public function incluir(Vaga $vaga){
         try{
             $link=mysqli_connect("localhost", "root", "", "trivagas");
             $query="INSERT INTO vagas (`id`, `id_empresa`, `descricao`, `horario`, `salario`, `beneficios`, `categoria`)
-			VALUES (NULL, '$vagas->descricao', '$vagas->horario', '$vagas->salario', '$vagas->beneficios', '$vagas->categoria')";
+			VALUES (NULL, '$vaga->id_empresa', '$vaga->descricao', '$vaga->horario', '$vaga->salario', '$vaga->beneficios', '$vaga->categoria')";
             mysqli_query($link, $query);
         }catch(Exception $e){
-            echo $e;
-        }
-    }
-    
-	// Verificar se esse buscar será pelo id_empresa ou pela descricao/categoria
-    public function buscar($id_empresa){
-        try {
-            $link=mysqli_connect("localhost", "root", "", "trivagas");
-            $query="SELECT * FROM vagas WHERE id_empresa = '$id_empresa'";
-            $result=mysqli_query($link, $query);
-            $obj=mysqli_fetch_object($result);
-            return $obj;
-        } catch (Exception $e) {
             echo $e;
         }
     }
@@ -110,12 +96,12 @@ class Vagas{
         }
     }
     
-    public function alterar(Vagas $vagas){
+    public function alterar(Vaga $vaga){
         try{
             $link=mysqli_connect("localhost", "root", "", "trivagas");
-            $query="UPDATE vagas SET descricao = '$vagas->descricao', horario = '$vagas->horario',
-			salario = '$vagas->salario', beneficios = '$vagas->beneficios', categoria = '$vagas->categoria'
-			WHERE id = '$vagas->id'";
+            $query="UPDATE vagas SET descricao = '$vaga->descricao', horario = '$vaga->horario',
+			salario = '$vaga->salario', beneficios = '$vaga->beneficios', categoria = '$vaga->categoria'
+			WHERE id = '$vaga->id'";
             mysqli_query($link, $query);
         }catch (Exception $e){
             echo $e;

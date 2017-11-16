@@ -42,7 +42,7 @@ class Empresa{
         $this->email = $email;
     }
     
-    //M�todos
+    //Métodos
     
     public function incluir(Empresa $empresa){
         try{

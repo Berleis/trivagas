@@ -35,7 +35,7 @@ class Usuario{
 		$this->senha = $senha;
 	}
 	
-	//M�todos
+	//Métodos
 	
 	public function incluir(Usuario $usuario){
 		try{

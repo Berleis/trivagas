@@ -2,18 +2,18 @@
 class Curriculo{
     
     private $id;
-	private $idcandidato;
+	private $id_candidato;
 	private $endereco;
 	private $objetivo;
 	private $formacao;
 	private $habilidades;
 	
-    //--------------------
+    //Getters
     public function getId() {
         return $this->id;
     }
-    public function getIdcandidato() {
-        return $this->idcandidato;
+    public function getId_candidato() {
+        return $this->id_candidato;
     }
     public function getEndereco() {
         return $this->endereco;
@@ -27,12 +27,13 @@ class Curriculo{
 	public function getHabilidades() {
         return $this->habilidades;
     }
-	//----------------------
+    
+	//Setters
     public function setId($id) {
         $this->id = $id;
     }
-    public function setIdcandidato($idcandidato) {
-        $this->idcandidato = $idcandidato;
+    public function setId_candidato($id_candidato) {
+        $this->id_candidato = $id_candidato;
     }
 	public function setEndereco ($endereco) {
         $this->endereco = $endereco;
@@ -43,43 +44,44 @@ class Curriculo{
 	public function setFormacao($formacao) {
         $this->formacao = $formacao;
     }
-	public function setHabilidades($extra) {
+	public function setHabilidades($habilidades) {
         $this->habilidades = $habilidades;
     }
     
+    //Métodos
     
     public function incluir(Curriculo $curriculo){
         try{
             $link=mysqli_connect("localhost", "root", "", "trivagas");
-            $query="INSERT INTO curriculo (` id `, ` idcandidato ` , ` endereco `, ` objetivo ` , ` formacao` , ` habilidades ` )
-			VALUES (NULL, '$curriculo->idcandidato' , '$curriculo->endereco', '$curriculo->objetivo','$curriculo->formacao','$curriculo->habilidades')";
+            $query="INSERT INTO curriculos (`id`, `id_candidato`, `endereco`, `objetivo`, `formacao`, `habilidades`)
+			VALUES (NULL, '$curriculo->id_candidato', '$curriculo->endereco', '$curriculo->objetivo', '$curriculo->formacao', '$curriculo->habilidades')";
             mysqli_query($link, $query);
-        }catch(Exception $c){
-            echo $c;
+        }catch(Exception $e){
+            echo $e;
         }
     }
     
-    public function buscar($idcandidato){
-        try {
-            $link=mysqli_connect("localhost", "root", "", "trivagas");
-            $query="SELECT * FROM curriculos WHERE idcandidato = '$idcandidato'";
-            $result=mysqli_query($link, $query);
-            $obj=mysqli_fetch_object($result);
-            return $obj;
-        } catch (Exception $c) {
-            echo $c;
-        }
-    }
-    
-    public function buscarPorId($id){
+    public function buscar($id){
         try {
             $link=mysqli_connect("localhost", "root", "", "trivagas");
             $query="SELECT * FROM curriculos WHERE id = '$id'";
             $result=mysqli_query($link, $query);
             $obj=mysqli_fetch_object($result);
             return $obj;
-        } catch (Exception $c) {
-            echo $c;
+        } catch (Exception $e) {
+            echo $e;
+        }
+    }
+    
+    public function buscarPorCandidato($id){
+        try {
+            $link=mysqli_connect("localhost", "root", "", "trivagas");
+            $query="SELECT * FROM curriculos WHERE id_candidato = '$id'";
+            $result=mysqli_query($link, $query);
+            $obj=mysqli_fetch_object($result);
+            return $obj;
+        } catch (Exception $e) {
+            echo $e;
         }
     }
     
@@ -94,8 +96,8 @@ class Curriculo{
                 return null;
             }
             return $obj;
-        } catch (Exception $c) {
-            echo $c;
+        } catch (Exception $e) {
+            echo $e;
         }
     }
     
@@ -104,10 +106,10 @@ class Curriculo{
             $link=mysqli_connect("localhost", "root", "", "trivagas");
             $query="UPDATE curriculos SET endereco = '$curriculo->endereco', objetivo = '$curriculo->objetivo',
 			formacao = '$curriculo->formacao', habilidades = '$curriculo->habilidades'
-			WHERE idcandidato = '$curriculo->idcandidato'";
+			WHERE id = '$curriculo->id'";
             mysqli_query($link, $query);
-        }catch (Exception $c){
-            echo $c;
+        }catch (Exception $e){
+            echo $e;
         }
     }
     
@@ -116,8 +118,8 @@ class Curriculo{
             $link=mysqli_connect("localhost", "root", "", "trivagas");
             $query="DELETE FROM curriculos WHERE id = '$id'";
             mysqli_query($link, $query);
-        } catch (Exception $c) {
-            echo $c;
+        } catch (Exception $e) {
+            echo $e;
         }
     }
  
