@@ -14,7 +14,7 @@
 <body>
 	<nav class="navbar navbar-nav navbar-inverse" style="width: 100%; position: absolute; top: 0">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="../Index/Index.php">Trivagas</a>
+			<a class="navbar-brand" href="<?php $_SERVER['DOCUMENT_ROOT']?>/trivagas/Index.php">Trivagas</a>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="dropdown">
@@ -22,8 +22,8 @@
 							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="../Usuario/Cadastrar.php">Cadastrar</a></li>
-							<li><a href="../Usuario/Listar.php">Listar</a></li>
+							<li><a href="<?php $_SERVER['DOCUMENT_ROOT']?>/trivagas/Usuario/Cadastrar.php">Cadastrar</a></li>
+							<li><a href="<?php $_SERVER['DOCUMENT_ROOT']?>/trivagas/Usuario/Listar.php">Listar</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
@@ -31,8 +31,8 @@
 							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="../Empresa/Cadastrar.php">Cadastrar</a></li>
-							<li><a href="../Empresa/Listar.php">Listar</a></li>
+							<li><a href="<?php $_SERVER['DOCUMENT_ROOT']?>/trivagas/Empresa/Cadastrar.php">Cadastrar</a></li>
+							<li><a href="<?php $_SERVER['DOCUMENT_ROOT']?>/trivagas/Empresa/Listar.php">Listar</a></li>
 						</ul>
 					</li>
 				</ul>

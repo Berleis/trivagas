@@ -3,8 +3,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<title>Administrador logado</title>
-	<?php include '../Template/Header.php';?>
-	<?php include '../Template/Footer.php';?>
+	<?php include $_SERVER['DOCUMENT_ROOT']."/trivagas/Template/Header.php";?>
+	<?php include $_SERVER['DOCUMENT_ROOT']."/trivagas/Template/Footer.php";?>
 </head>
 <body>
 	<form method="post" action="#">
