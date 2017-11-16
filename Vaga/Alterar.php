@@ -24,14 +24,13 @@
     		<input required placeholder="Digite o salário" name="salario" class="form-control" value="<?php echo $v->salario;?>"></input><br><br>
 			<label>Benefícios</label><br>
     		<input required placeholder="Digite os beneficios desta vaga" name="beneficios" class="form-control" value="<?php echo $v->beneficios;?>"></input><br><br>
-			<!-- Verificar com Diego se a categoria será assim normal -->
 			<label>Categoria</label><br>
     		<input required placeholder="Digite a categoria" name="categoria" class="form-control" value="<?php echo $v->categoria;?>"></input><br><br>
     		<input class="btn btn-success" type="submit" value="Salvar alterações" name="alterar">
     		<?php 
     			if(isset($_POST['alterar'])){
-    				$v = new Vagas();
-    				$v->setId($_SESSION['id_vaga']); //ver se assim esta certo
+    			    $v = new Vaga();
+    			    $v->setId($_SESSION['id_vaga']);
     				$v->setDescricao($_POST['descricao']);
     				$v->setHorario($_POST['horario']);
     				$v->setSalario($_POST['salario']);

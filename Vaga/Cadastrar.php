@@ -26,19 +26,14 @@
     		if(isset($_POST['cadastrar'])){
     			require_once '../Classes/Vaga.php';
     			$vaga = new Vaga();
+    			$vaga->setId_empresa(5);
     			$vaga->setDescricao($_POST['descricao']);
     			$vaga->setHorario($_POST['horario']);
     			$vaga->setSalario($_POST['salario']);
     			$vaga->setBeneficios($_POST['beneficios']);
-    			$vaga->setCategoria($_POST['categoria']);				
-    			//Verificar algum outro tipo de busca
-				$row=$vaga->buscar($_POST['descricao']);
-    			if($row == null){
-    				$vaga->incluir($vaga);
-    				header("location: Listar.php");
-    			}else{
-    				echo "<br>Essa descrição já existe no sistema!";
-    			}
+    			$vaga->setCategoria($_POST['categoria']);	
+    			$vaga->incluir($vaga);
+				header("location: Listar.php");
     		}
     	?>
 	</div>

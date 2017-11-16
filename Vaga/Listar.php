@@ -47,7 +47,7 @@
     					header('location: Alterar.php');
     				}
     				if(isset($_GET['excluir'])){
-    					$vagas->excluir($_GET['id']);
+    					$vaga->excluir($_GET['id']);
     					exit(header('location: Listar.php'));
     				}
     			?>
