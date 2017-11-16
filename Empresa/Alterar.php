@@ -16,7 +16,7 @@
     		<label>Nome</label>
     		<input required placeholder="Digite o nome da empresa" name="nome" class="form-control" value="<?php echo $e->nome;?>"></input><br>
     		<label>CNPJ</label><br>
-    		<input required placeholder="Digite o CNPJ" name="cnpj" class="form-control" value="<?php echo $e->cpf;?>"></input><br>
+    		<input required placeholder="Digite o CNPJ" name="cnpj" class="form-control" value="<?php echo $e->cnpj;?>"></input><br>
     		<label>Senha</label><br>
     		<input required placeholder="Digite a senha" name="senha" class="form-control" value="<?php echo $e->senha;?>"></input><br><br>
 			<label>Email</label><br>
@@ -24,8 +24,8 @@
     		<input class="btn btn-success" type="submit" value="Salvar alterações" name="alterar">
     		<?php 
     			if(isset($_POST['alterar'])){
-    				$e = new Empresa();
-    				$e->setId($_SESSION['id_empresa']);
+    			    $e = new Empresa();
+    			    $e->setId($_SESSION['id_empresa']);
     				$e->setNome($_POST['nome']);
     				$e->setCnpj($_POST['cnpj']);
     				$e->setSenha($_POST['senha']);

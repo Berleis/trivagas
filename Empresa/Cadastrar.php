@@ -31,8 +31,7 @@
     			$row=$empresa->buscar($_POST['cnpj']);
     			if($row == null){
     				$empresa->incluir($empresa);
-    				var_dump($empresa);
-    				/** header("location: Listar.php"); **/
+                    header("location: Listar.php");
     			}else{
     				echo "<br>CNPJ já existe no sistema!";
     			}

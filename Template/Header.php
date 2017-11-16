@@ -26,6 +26,15 @@
 							<li><a href="../Usuario/Listar.php">Listar</a></li>
 						</ul>
 					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Empresas
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="../Empresa/Cadastrar.php">Cadastrar</a></li>
+							<li><a href="../Empresa/Listar.php">Listar</a></li>
+						</ul>
+					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="https://www.google.com.br" target="_blank" style="margin-right: 20px">Precisa de ajuda?</a></li>
