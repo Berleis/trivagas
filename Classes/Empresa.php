@@ -116,7 +116,17 @@ class Empresa{
             echo $e;
         }
     }
-    
+    public function buscarPorLogin($cnpj, $senha){
+        try {
+            $link=mysqli_connect("localhost", "root", "", "trivagas");
+            $query="SELECT * FROM empresas WHERE cnpj = '$cnpj' AND senha = '$senha'";
+            $result=mysqli_query($link, $query);
+            $obj=mysqli_fetch_object($result);
+            return $obj;
+        } catch (Exception $e) {
+            echo $e;
+        }
+    }
 }
 
 ?>

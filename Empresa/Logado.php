@@ -2,14 +2,14 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-	<title>Administrador logado</title>
+	<title>Administrador empresarial</title>
 	<?php include '../Template/Header.php';?>
 	<?php include '../Template/Footer.php';?>
 </head>
 <body>
 	<?php
         session_start();
-        if (!isset($_SESSION['admin'])) {
+        if (!isset($_SESSION['empresa'])) {
             header('location: ../Index/Index.php');
         } else {
     ?>
@@ -21,7 +21,7 @@
 		<?php 
 		  if(isset($_POST['logout'])){
 		      session_destroy();
-		      header('location: ..Index.php');
+		      header('location: ../Index.php');
 		  }
 		?>
 	<?php }?>
