@@ -1,5 +1,4 @@
 <?php
-
 class Usuario{
 	
 	private $id;
@@ -43,8 +42,8 @@ class Usuario{
 			$query="INSERT INTO usuarios (`id`, `nome`, `cpf`, `senha`)
 			VALUES (NULL, '$usuario->nome', '$usuario->cpf', '$usuario->senha')";
 			mysqli_query($link, $query);
-		}catch(Exception $e){
-			echo $e;
+		}catch(Exception $u){
+			echo $u;
 		}
 	}
 	
@@ -110,6 +109,17 @@ class Usuario{
 		}
 	}
 	
+	public function buscarPorLogin($cpf, $senha){
+        try {
+            $link=mysqli_connect("localhost", "root", "", "trivagas");
+            $query="SELECT * FROM usuarios WHERE cpf = '$cpf' AND senha = '$senha'";
+            $result=mysqli_query($link, $query);
+            $obj=mysqli_fetch_object($result);
+            return $obj;
+        } catch (Exception $e) {
+            echo $e;
+        }
+	
 }
-
+}
 ?>
