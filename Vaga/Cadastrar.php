@@ -5,9 +5,15 @@
 	<title>Cadastro da vaga</title>
 	<?php include '../Template/Header.php';?>
 	<?php include '../Template/Footer.php';?>
+	<?php
+        session_start();
+        if (!isset($_SESSION['empresa'])) {
+            header('location: ../Index.php');
+        }
+    ?>
 </head>
 <body>
-	<div class="container" style="width: 30%; margin-top: 10%">
+	<div class="container" style="width: 30%; margin-top: 25px">
     	<form method="post" action="#">
     		<label>Descrição da vaga</label><br>
     		<input required placeholder="Digite a descrição da vaga" name="descricao" class="form-control"><br>
@@ -26,14 +32,14 @@
     		if(isset($_POST['cadastrar'])){
     			require_once '../Classes/Vaga.php';
     			$vaga = new Vaga();
-    			$vaga->setId_empresa(5);
+    			$vaga->setId_empresa($_SESSION['empresa']);
     			$vaga->setDescricao($_POST['descricao']);
     			$vaga->setHorario($_POST['horario']);
     			$vaga->setSalario($_POST['salario']);
     			$vaga->setBeneficios($_POST['beneficios']);
     			$vaga->setCategoria($_POST['categoria']);	
     			$vaga->incluir($vaga);
-				header("location: Listar.php");
+				header("location: ListarPorEmpresa.php");
     		}
     	?>
 	</div>

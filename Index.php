@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-	<title>Administrador logado</title>
+	<title>Index</title>
 	<?php include $_SERVER['DOCUMENT_ROOT']."/trivagas/Template/Header.php";?>
 	<?php include $_SERVER['DOCUMENT_ROOT']."/trivagas/Template/Footer.php";?>
 </head>

@@ -17,15 +17,13 @@
     		<input class="btn btn-success" type="submit" value="Logar" name="logar">
     	</form>
     	<?php 
-    	 session_start();
          require_once '../Classes/Empresa.php';    
     		if (isset($_POST['logar'])) {
     		    $e = new Empresa();
     		    $e = $e->buscarPorLogin($_POST['cnpj'], $_POST['senha']);
     		    if ($e != null) {
-                    session_start();
                     $_SESSION['empresa'] = $_POST['cnpj'];
-                    header('location: Logado.php');
+                    header('location: Perfil.php');
                 }else{
                     echo '<br><h5>Usuário ou senha inválidos</h5>';
                 }

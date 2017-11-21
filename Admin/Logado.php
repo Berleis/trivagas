@@ -10,7 +10,7 @@
 	<?php
         session_start();
         if (!isset($_SESSION['admin'])) {
-            header('location: ../Index/Index.php');
+            header('location: ../Index.php');
         } else {
     ?>
     	<form method="post" action="#">
@@ -21,7 +21,7 @@
 		<?php 
 		  if(isset($_POST['logout'])){
 		      session_destroy();
-		      header('location: ..Index.php');
+		      header('location: ../Index.php');
 		  }
 		?>
 	<?php }?>

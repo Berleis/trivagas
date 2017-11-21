@@ -2,29 +2,21 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-	<title>Lista de vagas</title>
+	<title>Minhas vagas</title>
 	<?php include '../Template/Header.php';?>
 	<?php include '../Template/Footer.php';?>
-	<?php
-	    if(isset($_SESSION['empresa'])) {
-	       header('location: ../Vaga/ListarPorEmpresa.php');
-	    }
-        if(isset($_SESSION['usuario'])){
-           require_once '../Classes/Curriculo.php';
-           $c = new Curriculo();
-           if($c->buscarPorCandidato($_SESSION['usuario']) == null) {
-               header('location: ../Curriculo/Cadastrar.php');
-           }
-        }
+	<?php 
+	   if(!isset($_SESSION['empresa'])){
+	       header('location: ../Index.php');   
+	   }
 	?>
 </head>
 <body>
 	<div class="container" style="width: 80%; margin-top: 8%">
     	<?php
-    	
     		require_once '../Classes/Vaga.php';
     		$vaga = new Vaga();
-    		$vagas = $vaga->listar();
+    		$vagas = $vaga->listarPorEmpresa($_SESSION['empresa']);
     		if($vagas == null){
     			echo "<h2 style='margin-top: 16%; text-align: center' >Não há cadastros</h2>";
     		}else{?>

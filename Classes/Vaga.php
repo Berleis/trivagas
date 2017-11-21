@@ -96,6 +96,22 @@ class Vaga{
         }
     }
     
+    public function listarPorEmpresa($id){
+        try{
+            $link=mysqli_connect("localhost", "root", "", "trivagas");
+            $query = $link->query("SELECT * FROM vagas WHERE id_empresa = '$id'");
+            while($result = $query->fetch_object()){
+                $obj[] = $result;
+            }
+            if(empty($obj)){
+                return null;
+            }
+            return $obj;
+        } catch (Exception $e) {
+            echo $e;
+        }
+    }
+    
     public function alterar(Vaga $vaga){
         try{
             $link=mysqli_connect("localhost", "root", "", "trivagas");

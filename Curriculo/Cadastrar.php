@@ -5,6 +5,18 @@
 	<title>Cadastro de curriculo</title>
 	<?php include '../Template/Header.php';?>
 	<?php include '../Template/Footer.php';?>
+	<?php 
+        if(!isset($_SESSION['usuario'])) {
+            header('location: ../Index.php');
+        }
+	?>
+	<?php 
+	    require_once '../Classes/Curriculo.php';
+	    $c = new Curriculo();
+	    if($c->buscarPorCandidato($_SESSION['usuario']) != null) {
+	        header('location: ../Usuario/Perfil.php');
+	    }
+	?>
 </head>
 <body>
 	<div class="container" style="width: 30%; margin-top: 10%">
@@ -25,13 +37,13 @@
     		if(isset($_POST['cadastrar'])){
     			require_once '../Classes/Curriculo.php';
     			$curriculo = new Curriculo();
-    			$curriculo->setId_candidato(3);
+    			$curriculo->setId_candidato($_SESSION['usuario']);
     			$curriculo->setEndereco($_POST['endereco']);
     			$curriculo->setObjetivo($_POST['objetivo']);
     			$curriculo->setFormacao($_POST['formacao']);
 				$curriculo->setHabilidades($_POST['habilidades']);
 				$curriculo->incluir($curriculo);
-				header("location: Listar.php");
+				header("location: ../Usuario/Perfil.php");
     		}
     	?>
 	</div>
