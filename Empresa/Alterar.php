@@ -2,13 +2,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <title>Alterar empresa</title>
     <?php include '../Template/Header.php';?>
-	<?php include '../Template/Footer.php';?>
 </head>
 <body>
     <div class="container" style="width: 30%; margin-top: 10%">
     	<form method="post" action="#">
     		<?php 
-    			session_start();
     			require_once '../Classes/Empresa.php';
     			$e = new Empresa();
     			$e = $e->buscarPorId($_SESSION['id_empresa'])
@@ -32,7 +30,7 @@
 					$e->setEmail($_POST['email']);
     				$e->alterar($e);
     				unset($_SESSION['id_empresa']);
-    				header('location: Listar.php');
+    				header('location: Perfil.php');
     			}
     		?>
     	</form>

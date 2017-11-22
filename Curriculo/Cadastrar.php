@@ -4,7 +4,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<title>Cadastro de curriculo</title>
 	<?php include '../Template/Header.php';?>
-	<?php include '../Template/Footer.php';?>
 	<?php 
         if(!isset($_SESSION['usuario'])) {
             header('location: ../Index.php');
@@ -19,19 +18,23 @@
 	?>
 </head>
 <body>
-	<div class="container" style="width: 30%; margin-top: 10%">
+	<div class="container" style="width: 100%; margin-top: 10%">
     	<form method="post" action="#">
-    		<label>Endereço</label><br>
-    		<input required placeholder="Digite seu endereço" name="endereco" class="form-control"><br>
-    		<label>Objetivo</label><br>
-    		<input required placeholder="Digite seu objetivo" name="objetivo" class="form-control"><br>
-    		<label>Formação</label><br>
-    		<input required placeholder="Digite o nome da instituição bem como o nível do curso" 
-			name="formacao" class="form-control"></input><br><br>
-			<label>Habilidades</label><br/>
-			<input required placeholder="Digite suas habilidades" name="habilidades" class="form-control"></input><br><br>
-    		<input class="btn btn-primary" type="reset" value="Cancelar">
-    		<input class="btn btn-success" type="submit" value="Cadastrar" name="cadastrar">
+    		<div style="width: 40%; float: left; margin-left: 8%">
+	    		<label>Endereço</label><br>
+	    		<textarea required placeholder="Digite seu endereço" name="endereco" class="form-control" maxlength="200"></textarea><br><br>
+	    		<label>Objetivo</label><br>
+	    		<textarea required placeholder="Digite seu objetivo" name="objetivo" class="form-control" maxlength="200"></textarea><br>
+    		</div>
+    		<div style="width: 40%; float: right; margin-right: 8%">
+	    		<label>Formação</label><br>
+	    		<textarea required placeholder="Digite o nome da instituição e o nível do curso" 
+				name="formacao" class="form-control" maxlength="200"></textarea><br><br>
+				<label>Habilidades</label><br>
+				<textarea required placeholder="Digite suas habilidades" name="habilidades" class="form-control" maxlength="1000"></textarea><br><br>
+	    		<input class="btn btn-success" type="submit" value="Cadastrar" name="cadastrar" style="float: right">
+	    		<input class="btn btn-primary" type="reset" value="Cancelar" style="float: right">
+    		</div>
     	</form>
     	<?php 
     		if(isset($_POST['cadastrar'])){

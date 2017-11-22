@@ -4,7 +4,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<title>Cadastro do usuário</title>
 	<?php include '../Template/Header.php';?>
-	<?php include '../Template/Footer.php';?>
 </head>
 <body>
 	<div class="container" style="width: 30%; margin-top: 10%">
@@ -28,9 +27,9 @@
     			$row=$usuario->buscar($_POST['cpf']);
     			if($row == null){
     				$usuario->incluir($usuario);
-    				header("location: Listar.php");
+    				header("location: Login.php");
     			}else{
-    				echo "<br>CPF já existe no sistema!";
+    				echo "<br><h5>CPF já existe no sistema!</h5>";
     			}
     		}
     	?>

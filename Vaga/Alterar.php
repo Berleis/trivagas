@@ -4,14 +4,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <title>Alterar vaga</title>
     <?php include '../Template/Header.php';?>
-	<?php include '../Template/Footer.php';?>
 </head>
 <body>
-    <div class="container" style="width: 30%; margin-top: 10%">
+    <div class="container" style="width: 30%; margin-top: 8%">
     	<form method="post" action="#">
-			<!-- Substituir v por e -->
     		<?php 
-    			session_start();
     			require_once '../Classes/Vaga.php';
     			$v = new Vaga();
     			$v = $v->buscarPorId($_SESSION['id_vaga'])
@@ -21,11 +18,11 @@
     		<label>Horario</label><br>
     		<input required placeholder="Digite o horario" name="horario" class="form-control" value="<?php echo $v->horario;?>"></input><br>
     		<label>Salario</label><br>
-    		<input required placeholder="Digite o salário" name="salario" class="form-control" value="<?php echo $v->salario;?>"></input><br><br>
+    		<input required placeholder="Digite o salário" name="salario" class="form-control" value="<?php echo $v->salario;?>"></input><br>
 			<label>Benefícios</label><br>
-    		<input required placeholder="Digite os beneficios desta vaga" name="beneficios" class="form-control" value="<?php echo $v->beneficios;?>"></input><br><br>
+    		<input required placeholder="Digite os beneficios desta vaga" name="beneficios" class="form-control" value="<?php echo $v->beneficios;?>"></input><br>
 			<label>Categoria</label><br>
-    		<input required placeholder="Digite a categoria" name="categoria" class="form-control" value="<?php echo $v->categoria;?>"></input><br><br>
+    		<input required placeholder="Digite a categoria" name="categoria" class="form-control" value="<?php echo $v->categoria;?>"></input><br>
     		<input class="btn btn-success" type="submit" value="Salvar alterações" name="alterar">
     		<?php 
     			if(isset($_POST['alterar'])){

@@ -4,7 +4,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<title>Administrador logado</title>
 	<?php include '../Template/Header.php';?>
-	<?php include '../Template/Footer.php';?>
 </head>
 <body>
 	<?php

@@ -4,7 +4,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<title>Cadastro da vaga</title>
 	<?php include '../Template/Header.php';?>
-	<?php include '../Template/Footer.php';?>
 	<?php
         session_start();
         if (!isset($_SESSION['empresa'])) {
@@ -13,7 +12,7 @@
     ?>
 </head>
 <body>
-	<div class="container" style="width: 30%; margin-top: 25px">
+	<div class="container" style="width: 30%; margin-top: 5%">
     	<form method="post" action="#">
     		<label>Descrição da vaga</label><br>
     		<input required placeholder="Digite a descrição da vaga" name="descricao" class="form-control"><br>

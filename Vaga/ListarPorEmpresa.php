@@ -4,11 +4,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<title>Minhas vagas</title>
 	<?php include '../Template/Header.php';?>
-	<?php include '../Template/Footer.php';?>
 	<?php 
-	   if(!isset($_SESSION['empresa'])){
-	       header('location: ../Index.php');   
-	   }
+	    if(!isset($_SESSION['empresa']) && !isset($_SESSION['usuario'])){
+	    	header('location: ../Index.php');   
+	    }else if (!isset($_SESSION['empresa']) && isset($_SESSION['usuario'])){
+	    	header('location: '.$_SERVER['DOCUMENT_ROOT'].'/trivagas/Vaga/Listar.php'); 
+	    }
 	?>
 </head>
 <body>
@@ -18,7 +19,7 @@
     		$vaga = new Vaga();
     		$vagas = $vaga->listarPorEmpresa($_SESSION['empresa']);
     		if($vagas == null){
-    			echo "<h2 style='margin-top: 16%; text-align: center' >Não há cadastros</h2>";
+    			echo "<h2 style='margin-top: 16%; text-align: center' >Não há vagas cadastradas</h2>";
     		}else{?>
     		<table class="table table-bordered table-stripped table-hover">
     			<tr>

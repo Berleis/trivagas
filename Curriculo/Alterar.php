@@ -4,28 +4,29 @@
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <title>Alterar curriculo</title>
     <?php include '../Template/Header.php';?>
-	<?php include '../Template/Footer.php';?>
 </head>
 <body>
-    <div class="container" style="width: 30%; margin-top: 10%">
+    <div class="container" style="width: 100%; margin-top: 10%">
     	<form method="post" action="#">
     		<?php 
-			//aqui por ser sessão eu nao sei se altero ou não
-    			session_start();
     			require_once '../Classes/Curriculo.php';
     			$c = new Curriculo();
     			$c = $c->buscar($_SESSION['id_curriculo'])
     		?>
-    		<label>Endereco</label>
-    		<input required placeholder="Digite o endereco" name="endereco" class="form-control" value="<?php echo $c->endereco;?>"></input><br>
-    		<label>Objetivo</label><br>
-    		<input required placeholder="Digite Objetivo" name="objetivo" class="form-control" value="<?php echo $c->objetivo;?>"></input><br>
-    		<label>Formação</label><br>
-    		<input required placeholder="Digite o nome da instituição e o nível da formação" name="formacao"
-			class="form-control" value="<?php echo $c->formacao;?>"></input><br><br>
-			<label>Habilidades</label><br/>
-			<input required placeholder="Digite suas habilidades" name="habilidades" class="form-control" value="<?php echo $c->habilidades;?>"></input><br>
-    		<input class="btn btn-success" type="submit" value="Salvar alterações" name="alterar">
+    		<div style="width: 40%; float: left; margin-left: 8%">
+	    		<label>Endereço</label><br>
+	    		<textarea required placeholder="Digite seu endereço" name="endereco" class="form-control" maxlength="200"><?php echo $c->endereco;?></textarea><br><br>
+	    		<label>Objetivo</label><br>
+	    		<textarea required placeholder="Digite seu objetivo" name="objetivo" class="form-control" maxlength="200"><?php echo $c->objetivo;?></textarea><br>
+    		</div>
+    		<div style="width: 40%; float: right; margin-right: 8%">
+	    		<label>Formação</label><br>
+	    		<textarea required placeholder="Digite o nome da instituição e o nível do curso" 
+				name="formacao" class="form-control" maxlength="200"><?php echo $c->formacao;?></textarea><br><br>
+				<label>Habilidades</label><br>
+				<textarea required placeholder="Digite suas habilidades" name="habilidades" class="form-control" maxlength="1000"><?php echo $c->habilidades;?></textarea><br><br>
+    			<input class="btn btn-success" type="submit" value="Salvar alterações" name="alterar" style="float: right">
+    		</div>
     		<?php 
     			if(isset($_POST['alterar'])){
     			    $c = new Curriculo();
@@ -36,7 +37,7 @@
 					$c->setHabilidades($_POST['habilidades']);
     				$c->alterar($c);
     				unset($_SESSION['id_curriculo']);
-    				header('location: Listar.php');
+    				header('location: ../Usuario/Perfil.php');
     			}
     		?>
     	</form>

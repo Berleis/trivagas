@@ -4,7 +4,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<title>Lista de vagas</title>
 	<?php include '../Template/Header.php';?>
-	<?php include '../Template/Footer.php';?>
 	<?php
 	    if(isset($_SESSION['empresa'])) {
 	       header('location: ../Vaga/ListarPorEmpresa.php');
@@ -26,7 +25,7 @@
     		$vaga = new Vaga();
     		$vagas = $vaga->listar();
     		if($vagas == null){
-    			echo "<h2 style='margin-top: 16%; text-align: center' >Não há cadastros</h2>";
+    			echo "<h2 style='margin-top: 16%; text-align: center' >Não há vagas disponíveis no momento</h2>";
     		}else{?>
     		<table class="table table-bordered table-stripped table-hover">
     			<tr>

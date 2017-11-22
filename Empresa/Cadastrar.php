@@ -4,7 +4,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<title>Cadastro da empresa</title>
 	<?php include '../Template/Header.php';?>
-	<?php include '../Template/Footer.php';?>
 </head>
 <body>
 	<div class="container" style="width: 30%; margin-top: 10%">
@@ -31,9 +30,9 @@
     			$row=$empresa->buscar($_POST['cnpj']);
     			if($row == null){
     				$empresa->incluir($empresa);
-                    header("location: Listar.php");
+                    header("location: Login.php");
     			}else{
-    				echo "<br>CNPJ já existe no sistema!";
+    				echo "<br><h5>CNPJ já existe no sistema!</h5><br><br><br><br><br>";
     			}
     		}
     	?>
