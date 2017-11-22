@@ -134,5 +134,15 @@ class Vaga{
         }
     }
     
+    public function excluirPorEmpresa($id){
+    	try {
+    		$link=mysqli_connect("localhost", "root", "", "trivagas");
+    		$query="DELETE FROM vagas WHERE id_empresa = '$id'";
+    		mysqli_query($link, $query);
+    	} catch (Exception $e) {
+    		echo $e;
+    	}
+    }
+    
 }
 ?>

@@ -116,7 +116,7 @@ class Curriculo{
     public function excluir($id){
         try {
             $link=mysqli_connect("localhost", "root", "", "trivagas");
-            $query="DELETE FROM curriculos WHERE id = '$id'";
+            $query="DELETE FROM curriculos WHERE id_candidato = '$id'";
             mysqli_query($link, $query);
         } catch (Exception $e) {
             echo $e;

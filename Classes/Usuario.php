@@ -71,6 +71,18 @@ class Usuario{
 		}
 	}
 	
+	public function buscarPorCpf($cpf){
+		try {
+			$link=mysqli_connect("localhost", "root", "", "trivagas");
+			$query="SELECT * FROM usuarios WHERE cpf = '$cpf'";
+			$result=mysqli_query($link, $query);
+			$obj=mysqli_fetch_object($result);
+			return $obj;
+		} catch (Exception $e) {
+			echo $e;
+		}
+	}
+	
 	public function listar(){
 		try{
 			$link=mysqli_connect("localhost", "root", "", "trivagas");
@@ -99,10 +111,10 @@ class Usuario{
 		}
 	}
 	
-	public function excluir($id){
+	public function excluir($cpf){
 		try {
 			$link=mysqli_connect("localhost", "root", "", "trivagas");
-			$query="DELETE FROM usuarios WHERE id = '$id'";
+			$query="DELETE FROM usuarios WHERE cpf = '$cpf'";
 			mysqli_query($link, $query);
 		} catch (Exception $e) {
 			echo $e;

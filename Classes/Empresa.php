@@ -107,10 +107,10 @@ class Empresa{
         }
     }
     
-    public function excluir($id){
+    public function excluir($cnpj){
         try {
             $link=mysqli_connect("localhost", "root", "", "trivagas");
-            $query="DELETE FROM empresas WHERE id = '$id'";
+            $query="DELETE FROM empresas WHERE cnpj = '$cnpj'";
             mysqli_query($link, $query);
         } catch (Exception $e) {
             echo $e;
