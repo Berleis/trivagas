@@ -42,8 +42,8 @@
     					echo	'<td>'.$v->salario.'</td>';
 						echo	'<td>'.$v->beneficios.'</td>';
     					echo	'<td>'.$v->categoria.'</td>';
-    					echo	'<td><a href="Listar.php?alterar&id='.$v->id.'">Alterar</a></td>';
-    					echo	'<td><a href="Listar.php?excluir&id='.$v->id.'">Excluir</a></td>';
+    					echo	'<td><a href="ListarPorEmpresa.php?alterar&id='.$v->id.'">Alterar</a></td>';
+    					echo	'<td><a href="ListarPorEmpresa.php?excluir&id='.$v->id.'">Excluir</a></td>';
     					echo '</tr>';
     				}
     				if(isset($_GET['alterar'])){
