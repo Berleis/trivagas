@@ -111,10 +111,10 @@ class Usuario{
 		}
 	}
 	
-	public function excluir($cpf){
+	public function excluir($id){
 		try {
 			$link=mysqli_connect("localhost", "root", "", "trivagas");
-			$query="DELETE FROM usuarios WHERE cpf = '$cpf'";
+			$query="DELETE FROM usuarios WHERE id = '$id'";
 			mysqli_query($link, $query);
 		} catch (Exception $e) {
 			echo $e;
