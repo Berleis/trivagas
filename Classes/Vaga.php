@@ -112,6 +112,25 @@ class Vaga{
         }
     }
     
+    public function listarPorUsuario($id){
+    	try{
+    		$link=mysqli_connect("localhost", "root", "", "trivagas");
+    		$query = $link->query("SELECT id_vaga FROM usuarios_vagas WHERE id_usuario = '$id'");
+    		$i = 0;
+    		while($result = $query->fetch_assoc()){
+    			$i = $i + 1;
+    			$v = new Vaga();
+    			$obj[] = $v->buscarPorId(intval($result["id_vaga"]));
+    		}
+    		if(empty($obj)){
+    			return null;
+    		}
+    		return $obj;
+    	} catch (Exception $e) {
+    		echo $e;
+    	}
+    }
+    
     public function alterar(Vaga $vaga){
         try{
             $link=mysqli_connect("localhost", "root", "", "trivagas");

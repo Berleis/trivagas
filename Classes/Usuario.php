@@ -42,8 +42,8 @@ class Usuario{
 			$query="INSERT INTO usuarios (`id`, `nome`, `cpf`, `senha`)
 			VALUES (NULL, '$usuario->nome', '$usuario->cpf', '$usuario->senha')";
 			mysqli_query($link, $query);
-		}catch(Exception $u){
-			echo $u;
+		}catch(Exception $e){
+			echo $e;
 		}
 	}
 	
@@ -132,6 +132,29 @@ class Usuario{
             echo $e;
         }
 	
-}
+	}
+	
+	public function candidatar($id_usuario, $id_vaga){
+		try{
+			$link=mysqli_connect("localhost", "root", "", "trivagas");
+			$query="INSERT INTO usuarios_vagas (`id_usuario`, `id_vaga`)
+			VALUES ('$id_usuario', '$id_vaga')";
+			mysqli_query($link, $query);
+		}catch(Exception $e){
+			echo $e;
+		}
+	}
+	
+	public function buscarCandidatura($id_usuario, $id_vaga){
+		try{
+			$link=mysqli_connect("localhost", "root", "", "trivagas");
+			$query="SELECT * FROM usuarios_vagas WHERE id_usuario ='$id_usuario' AND id_vaga = '$id_vaga'";
+			$result=mysqli_query($link, $query);
+			$obj=mysqli_fetch_object($result);
+			return $obj; 
+		}catch(Exception $e){
+			echo $e;
+		}
+	}
 }
 ?>

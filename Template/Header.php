@@ -50,6 +50,9 @@
 					<ul class="nav navbar-nav">
     					<li><a href="<?php $_SERVER['DOCUMENT_ROOT']?>/trivagas/Vaga/Listar.php">Vagas disponíveis</a></li>
     				</ul>
+    				<ul class="nav navbar-nav">
+    					<li><a href="<?php $_SERVER['DOCUMENT_ROOT']?>/trivagas/Vaga/ListarPorUsuario.php">Minhas vagas</a></li>
+    				</ul>
 				<?php }?>
 				<?php if(isset($_SESSION['empresa'])){ ?>
 					<ul class="nav navbar-nav">

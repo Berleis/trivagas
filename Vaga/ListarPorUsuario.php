@@ -15,9 +15,6 @@
                header('location: ../Curriculo/Cadastrar.php');
            }
         }
-        if(isset($_GET['idv'])){
-        	header('location: Listar.php');
-        }
 	?>
 </head>
 <body>
@@ -26,9 +23,9 @@
 	    	<?php
 	    		require_once '../Classes/Vaga.php';
 	    		$vaga = new Vaga();
-	    		$vagas = $vaga->listar();
+	    		$vagas = $vaga->listarPorUsuario($_SESSION['usuario']);
 	    		if($vagas == null){
-	    			echo "<h2 style='margin-top: 16%; text-align: center' >Não há vagas disponíveis no momento</h2>";
+	    			echo "<h2 style='margin-top: 16%; text-align: center' >Não há vagas de seu interesse</h2>";
 	    		}else{?>
 	    		<table class="table table-bordered table-stripped table-hover">
 	    			<tr>
@@ -75,21 +72,11 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-								<?php echo '<a class="btn btn-success" href="Listar.php?candidatar&idv='.$v->id.'">Tenho interesse</a>'?>
 							</div>
 						</div>
 					</div>
 				</div>
 			<?php }}?>
-			<?php 
-				if(isset($_GET['candidatar'])){
-					require_once '../Classes/Usuario.php';
-					$u = new Usuario();
-					if($u->buscarCandidatura($_SESSION['usuario'], $_GET['idv']) == null){
-						$u->candidatar($_SESSION['usuario'], $_GET['idv']);
-					}
-				}
-			?>
 		</div>
 	</form>
 </body>
