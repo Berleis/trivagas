@@ -21,7 +21,7 @@
     		    $e = new Empresa();
     		    $e = $e->buscarPorLogin($_POST['cnpj'], $_POST['senha']);
     		    if ($e != null) {
-                    $_SESSION['empresa'] = $_POST['cnpj'];
+                    $_SESSION['empresa'] = $e->id;
                     header('location: Perfil.php');
                 }else{
                     echo '<br><h5>Usuário ou senha inválidos</h5>';

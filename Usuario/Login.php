@@ -21,7 +21,7 @@
      		    $u = new Usuario();
      		    $u = $u->buscarPorLogin($_POST['cpf'], $_POST['senha']);
      		    if ($u != null) {
-                     $_SESSION['usuario'] = $_POST['cpf'];
+                     $_SESSION['usuario'] = $u->id;
                      header('location: ../Curriculo/Cadastrar.php');
                  }else{
                      echo '<br><h5>Usuário ou senha inválidos</h5>';

@@ -39,7 +39,7 @@
     				foreach ($vagas as $v){
     					require_once '../Classes/Empresa.php';
     					$e = new Empresa();
-    					$e = $e->buscar($v->id_empresa);
+    					$e = $e->buscarPorId($v->id_empresa);
     					echo '<tr>';
     					echo	'<td>'.$v->id.'</td>';
     					echo	'<td>'.$v->descricao.'</td>';

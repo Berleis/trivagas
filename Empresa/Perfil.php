@@ -24,7 +24,7 @@
 			  	<?php 
 			  		require_once '../Classes/Empresa.php';
 			  		$e = new Empresa();
-			  		$e = $e->buscar($_SESSION['empresa']);
+			  		$e = $e->buscarPorId($_SESSION['empresa']);
 			  	?>
 		  		<div class="container" style="width: 80%; margin-right: 10%;">
 					<p>
@@ -72,8 +72,6 @@
 	      header('location: ../Index.php');
 	  }
 	  if(isset($_POST['alterar'])){
-	  	session_start();
-	  	$_SESSION['id_empresa'] = $e->id;
 	  	header('location: Alterar.php');
 	  }
 	  if(isset($_POST['excluir'])){
