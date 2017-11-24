@@ -29,6 +29,7 @@
     				<th>Salário</th>
 					<th>Beneficios</th>
     				<th>Categoria</th>
+    				<th>Usuários</th>
     				<th>Alterar</th>
     				<th>Excluir</th>
     			</tr>
@@ -42,6 +43,7 @@
     					echo	'<td>'.$v->salario.'</td>';
 						echo	'<td>'.$v->beneficios.'</td>';
     					echo	'<td>'.$v->categoria.'</td>';
+    					echo	'<td><a href="ListarPorEmpresa.php?ver_candidatos&idv='.$v->id.'">Usuários interessados</a></td>';
     					echo	'<td><a href="ListarPorEmpresa.php?alterar&id='.$v->id.'">Alterar</a></td>';
     					echo	'<td><a href="ListarPorEmpresa.php?excluir&id='.$v->id.'">Excluir</a></td>';
     					echo '</tr>';
@@ -54,6 +56,11 @@
     				if(isset($_GET['excluir'])){
     					$vaga->excluir($_GET['id']);
     					exit(header('location: Listar.php'));
+    				}
+    				if(isset($_GET['ver_candidatos'])){
+    				    session_start();
+    				    $_SESSION['id_vaga'] = $_GET['idv'];
+    				    header('location: ../Usuario/ListarPorVaga.php');
     				}
     			?>
     		</table>

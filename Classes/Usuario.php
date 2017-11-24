@@ -99,6 +99,23 @@ class Usuario{
 		}
 	}
 	
+	public function listarPorVaga($id){
+	    try{
+	        $link=mysqli_connect("localhost", "root", "", "trivagas");
+	        $query = $link->query("SELECT id_usuario FROM usuarios_vagas WHERE id_vaga = '$id'");
+	        while($result = $query->fetch_assoc()){
+	            $u = new Usuario();
+	            $obj[] = $u->buscarPorId(intval($result["id_usuario"]));
+	        }
+	        if(empty($obj)){
+	            return null;
+	        }
+	        return $obj;
+	    } catch (Exception $e) {
+	        echo $e;
+	    }
+	}
+	
 	public function alterar(Usuario $usuario){
 		try{
 			$link=mysqli_connect("localhost", "root", "", "trivagas");
@@ -155,6 +172,16 @@ class Usuario{
 		}catch(Exception $e){
 			echo $e;
 		}
+	}
+	
+	public function excluirCandidatura($idu, $idv){
+	    try {
+	        $link=mysqli_connect("localhost", "root", "", "trivagas");
+	        $query="DELETE FROM usuarios_vagas WHERE id_usuario = '$idu' AND id_vaga = '$idv'";
+	        mysqli_query($link, $query);
+	    } catch (Exception $e) {
+	        echo $e;
+	    }
 	}
 }
 ?>
