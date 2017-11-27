@@ -133,6 +133,8 @@ class Usuario{
 			$link=mysqli_connect("localhost", "root", "", "trivagas");
 			$query="DELETE FROM usuarios WHERE id = '$id'";
 			mysqli_query($link, $query);
+			$query="DELETE FROM usuarios_vagas WHERE id_usuario = '$id'";
+			mysqli_query($link, $query);
 		} catch (Exception $e) {
 			echo $e;
 		}

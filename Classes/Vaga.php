@@ -146,6 +146,8 @@ class Vaga{
             $link=mysqli_connect("localhost", "root", "", "trivagas");
             $query="DELETE FROM vagas WHERE id = '$id'";
             mysqli_query($link, $query);
+            $query="DELETE FROM usuarios_vagas WHERE id_vaga = '$id'";
+            mysqli_query($link, $query);
         } catch (Exception $e) {
             echo $e;
         }
